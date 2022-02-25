@@ -3,11 +3,19 @@ const loadComments = () => {
         .then(res => res.json())
         .then(data => displayComments(data))
 }
-loadComments()
+// loadComments()
 
 const displayComments = data => {
     console.log(data)
     data.forEach(comment => {
         console.log(comment)
+        const commentDiv = document.getElementById('comments')
+        const div = document.createElement('div')
+        div.classList.add('container','border', 'border-2', 'bg-info','my-2', 'py-3')
+        div.innerHTML =`
+        <h5>Name: ${comment.name}</h5>
+        <h6>Email: ${comment.email}</h6>
+        `
+        commentDiv.appendChild(div)
     })
 }
