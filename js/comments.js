@@ -13,9 +13,18 @@ const displayComments = data => {
         const div = document.createElement('div')
         div.classList.add('container','border', 'border-2', 'bg-info','my-2', 'py-3')
         div.innerHTML =`
-        <h5>Name: ${comment.name}</h5>
-        <h6>Email: ${comment.email}</h6>
+        <div onclick="commentsDetails('${comment}')">
+            <h5>Name: ${comment.name}</h5>
+            <h6>Email: ${comment.email}</h6>
+        </div>
         `
         commentDiv.appendChild(div)
     })
+}
+
+const commentsDetails = post => {
+    console.log(post)
+    /* fetch('https://jsonplaceholder.typicode.com/comments')
+        .then(res => res.json())
+        .then(data => console.log(data[0].id)) */
 }
